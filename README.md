@@ -1,0 +1,1 @@
+# telemetria-client-ionic
