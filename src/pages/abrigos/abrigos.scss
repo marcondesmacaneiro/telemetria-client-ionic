@@ -1,0 +1,38 @@
+page-abrigos {
+
+}
+.card-container-img {
+  position: relative;
+
+  button {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    &.activated {
+      background-color: rgba(0, 0, 0, 0.43);
+    }
+    .item-inner {
+      background: none !important;
+      padding: 0 !important;
+    }
+  }
+
+  .card-title {
+    font-size: 2.0em;
+    width: 100%;
+    color: #fff;
+    text-shadow: black 0 0.1em 0;
+    text-align: center;
+  }
+
+  .card-subtitle {
+    font-size: 1.3em;
+    width: 100%;
+    color: #fff;
+    text-shadow: black 0 0.1em 0;
+    text-align: center;
+  }
+
+}

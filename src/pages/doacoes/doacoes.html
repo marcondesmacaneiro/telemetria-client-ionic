@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Doações</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <button ion-item (click)="detalhaDoacao()">
+      <ion-icon name="home" item-right></ion-icon>
+      <h2>Nome Entidade</h2>
+      <p>Banco do Brasil - Nome Responsável</p>
+      <p>Conta 00.000-00</p>
+      <p>Agência 000-0</p>
+    </button>
+  </ion-card>
+  <ion-card>
+    <button ion-item>
+      <ion-icon name="person" item-right></ion-icon>
+      <h2>Nome Indivíduo</h2>
+      <p>Banco do Brasil - Nome Responsável</p>
+      <p>Conta 00.000-00</p>
+      <p>Agência 000-0</p>
+    </button>
+  </ion-card>
+</ion-content>

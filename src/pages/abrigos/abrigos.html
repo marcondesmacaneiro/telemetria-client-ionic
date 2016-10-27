@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Abrigos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+      <div class="card-container-img">
+        <img src="http://www.scturismo.com.br/wp-content/uploads/2015/05/Rio-do-Sul.jpg">
+        <button ion-item (click)="detalhaAbrigo()">
+          <div class="card-title">Igreja São Judas</div>
+          <div class="card-subtitle">Rio do Sul - Centro</div>
+        </button>
+      </div>
+      <ion-item>
+        <ion-icon name="call" item-left></ion-icon>
+        <span class="text-bold">Telefone</span>
+        <p>(99) 9999-9999</p>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="information" large item-left></ion-icon>
+        <span class="text-bold">Vagas Disponíveis</span>
+        <p>5/20</p>
+      </ion-item>
+  </ion-card>
+</ion-content>

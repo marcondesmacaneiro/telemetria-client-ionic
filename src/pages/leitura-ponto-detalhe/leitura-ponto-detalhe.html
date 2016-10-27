@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{titulo}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div id="mapa-ponto-detalhe"></div>
+  <ion-card>
+    <button ion-item (click)="mostraSensorHistorico()">
+      <ion-icon name="stats" item-left></ion-icon>
+      <h2>Nível do Rio</h2>
+      <p>12.2 m - 16/10/2016 23:59:00</p>
+    </button>
+    <button ion-item>
+      <ion-icon name="stats" item-left></ion-icon>
+      <h2>Umidade</h2>
+      <p>12% - 16/10/2016 23:59:00</p>
+    </button>
+    <button ion-item>
+      <ion-icon name="stats" item-left></ion-icon>
+      <h2>Vento</h2>
+      <p>20km/h - 16/10/2016 23:59:00</p>
+    </button>
+    <button ion-item>
+      <ion-icon name="stats" item-left></ion-icon>
+      <h2>Temperatura</h2>
+      <p>20º C - 16/10/2016 23:59:00</p>
+    </button>
+  </ion-card>
+</ion-content>
