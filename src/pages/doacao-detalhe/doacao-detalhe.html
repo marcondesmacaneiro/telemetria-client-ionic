@@ -10,26 +10,24 @@
     <ion-list-header>
       Entidade
     </ion-list-header>
-    <ion-item>Lar das Meninas</ion-item>
+    <ion-item style="white-space:normal;">
+      <span style="white-space:normal;">{{doacao.nome}}</span>
+    </ion-item>
   </ion-list>
   <ion-list>
     <ion-list-header>
       Endereço
     </ion-list-header>
-    <ion-item>Taboão</ion-item>
+    <ion-item>
+      <span style="white-space:normal;">{{doacao.endereco}}</span>
+    </ion-item>
   </ion-list>
   <ion-list>
     <ion-list-header>
       Informações
     </ion-list-header>
     <ion-item>
-      Contatos:<br>
-      <div>99 9999-9999 - Bruno Pasqualini</div>
-      <br>
-      <div>Dados para Depósito:</div>
-      <div>Banco do Brasil - Nome Responsável</div>
-      <div>Conta 00.000-00</div>
-      <div>Agência 000-0</div>
+      <span style="white-space: pre;">{{doacao.informacoes}}</span>
     </ion-item>
   </ion-list>
 </ion-content>

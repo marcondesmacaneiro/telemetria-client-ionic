@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, Platform } from 'ionic-angular';
+import { LeituraSensorHistoricoPage } from '../leitura-sensor-historico/leitura-sensor-historico';
 
 declare var google: any;
 
@@ -8,30 +9,26 @@ declare var google: any;
   templateUrl: 'leitura-ponto-detalhe.html'
 })
 export class LeituraPontoDetalhePage {
-  titulo: string;
+  private ponto: any;
 
   constructor(public navCtrl: NavController, public params: NavParams, public platform: Platform) {
-    this.titulo = this.params.get('titulo');
+    this.ponto = this.params.get('ponto');
 
     platform.ready().then(() => {
       this.carregaMapa();
     });
   }
 
-  ionViewDidLoad() {
-
-  }
-
-  mostraSensorHistorico(sensorId: number) {
-
+  mostraSensorHistorico(sensor: any) {
+    this.navCtrl.push(LeituraSensorHistoricoPage);
   }
 
   private carregaMapa() {
-    let latLng    = new google.maps.LatLng(-27.2072074595, -49.6335553844);
+    let latLng    = JSON.parse(this.ponto.localizacao);
     let container = document.getElementById('mapa-ponto-detalhe');
     let map = new google.maps.Map(container, {
       center           : latLng,
-      zoom             : 18,
+      zoom             : 17,
       zoomControl      : true,
       disableDefaultUI : true,
       mapTypeId        : google.maps.MapTypeId.ROADMAP

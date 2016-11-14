@@ -8,23 +8,23 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card *ngFor="let abrigo of abrigos">
       <div class="card-container-img">
-        <img src="http://www.scturismo.com.br/wp-content/uploads/2015/05/Rio-do-Sul.jpg">
-        <button ion-item (click)="detalhaAbrigo()">
-          <div class="card-title">Igreja São Judas</div>
-          <div class="card-subtitle">Rio do Sul - Centro</div>
+        <img [src]="abrigo.imagem">
+        <button ion-item (click)="detalhaAbrigo(abrigo);">
+          <div class="card-title">{{abrigo.nome}}</div>
+          <div class="card-subtitle">{{abrigo.endereco}}</div>
         </button>
       </div>
       <ion-item>
         <ion-icon name="call" item-left></ion-icon>
         <span class="text-bold">Telefone</span>
-        <p>(99) 9999-9999</p>
+        <p>{{abrigo.contatoPrincipal}}</p>
       </ion-item>
       <ion-item>
         <ion-icon name="information" large item-left></ion-icon>
         <span class="text-bold">Vagas Disponíveis</span>
-        <p>5/20</p>
+        <p>{{abrigo.lotacaoAtual}}/{{abrigo.lotacaoMaxima}}</p>
       </ion-item>
   </ion-card>
 </ion-content>

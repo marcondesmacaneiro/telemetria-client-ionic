@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { ChartsModule } from 'ng2-charts/components/charts/charts';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { AbrigosPage } from '../pages/abrigos/abrigos';
 import { AbrigoDetalhePage } from '../pages/abrigo-detalhe/abrigo-detalhe';
 import { ContatosPage } from '../pages/contatos/contatos';
@@ -14,12 +13,11 @@ import { LeituraPontosListaPage } from '../pages/leitura-pontos-lista/leitura-po
 import { LeituraPontoDetalhePage } from '../pages/leitura-ponto-detalhe/leitura-ponto-detalhe';
 import { LeituraSensorHistoricoPage } from '../pages/leitura-sensor-historico/leitura-sensor-historico';
 
-import { LeituraService } from '../providers/leitura-service';
+import { ApiRequestService } from '../providers/api-request-service';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     AbrigosPage,
     AbrigoDetalhePage,
     ContatosPage,
@@ -41,7 +39,6 @@ import { LeituraService } from '../providers/leitura-service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     AbrigosPage,
     AbrigoDetalhePage,
     ContatosPage,
@@ -53,6 +50,6 @@ import { LeituraService } from '../providers/leitura-service';
     LeituraPontoDetalhePage,
     LeituraSensorHistoricoPage
   ],
-  providers: [LeituraService]
+  providers: [ApiRequestService]
 })
 export class AppModule {}

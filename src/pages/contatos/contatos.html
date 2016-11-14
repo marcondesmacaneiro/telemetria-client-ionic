@@ -8,87 +8,21 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card *ngFor="let contato of contatos" [hidden]="contato.telefones.length == 0">
     <ion-grid>
       <ion-row>
         <ion-col class="titulo-contato">
-          <h3 text-center class="text-bold">Defesa Civil - Rio do Sul</h3>
+          <h3 text-center class="text-bold">{{contato.descricao}}</h3>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col width-33 center>
-          <img src="http://www.riodosul.sc.gov.br/images/LogoDefesa.JPG"/>
+          <img [src]="contato.banner"/>
         </ion-col>
         <ion-col>
-          <ion-item>
+          <ion-item *ngFor="let telefone of contato.telefones">
             <ion-icon name="call" item-left></ion-icon>
-            99 99999999
-          </ion-item>
-          <ion-item>
-            <ion-icon name="call" item-left></ion-icon>
-            99 99999999
-          </ion-item>
-          <ion-item>
-            <ion-icon name="call" item-left></ion-icon>
-            99 99999999
-          </ion-item>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-
-  <ion-card>
-    <ion-grid>
-      <ion-row>
-        <ion-col class="titulo-contato">
-          <h3 text-center class="text-bold">Corpo de Bombeiros - Rio do Sul</h3>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col width-33 center>
-          <img src="https://scontent.fbnu1-1.fna.fbcdn.net/v/t1.0-9/14359043_518514875005239_187180686831191203_n.png?oh=c772ca4abc380011f72ba03f2469013d&oe=58AC9E0E"/>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <ion-icon name="call" item-left></ion-icon>
-            99 99999999
-          </ion-item>
-          <ion-item>
-            <ion-icon name="call" item-left></ion-icon>
-            99 99999999
-          </ion-item>
-          <ion-item>
-            <ion-icon name="call" item-left></ion-icon>
-            99 99999999
-          </ion-item>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
-
-  <ion-card>
-    <ion-grid>
-      <ion-row>
-        <ion-col class="titulo-contato">
-          <h3 text-center class="text-bold">Polícia Militar - Rio do Sul</h3>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col width-33 center>
-          <img src="http://www.pmrv.sc.gov.br/imagens/conteudo/logos/PMSC.png"/>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <ion-icon name="call" item-left></ion-icon>
-            99 99999999
-          </ion-item>
-          <ion-item>
-            <ion-icon name="call" item-left></ion-icon>
-            99 99999999
-          </ion-item>
-          <ion-item>
-            <ion-icon name="call" item-left></ion-icon>
-            99 99999999
+            {{telefone.numero}}
           </ion-item>
         </ion-col>
       </ion-row>

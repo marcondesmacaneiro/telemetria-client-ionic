@@ -8,22 +8,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <button ion-item (click)="detalhaDoacao()">
-      <ion-icon name="home" item-right></ion-icon>
-      <h2>Nome Entidade</h2>
-      <p>Banco do Brasil - Nome Responsável</p>
-      <p>Conta 00.000-00</p>
-      <p>Agência 000-0</p>
-    </button>
-  </ion-card>
-  <ion-card>
-    <button ion-item>
-      <ion-icon name="person" item-right></ion-icon>
-      <h2>Nome Indivíduo</h2>
-      <p>Banco do Brasil - Nome Responsável</p>
-      <p>Conta 00.000-00</p>
-      <p>Agência 000-0</p>
+  <ion-card *ngFor="let doacao of doacoes">
+    <button ion-item (click)="detalhaDoacao(doacao);">
+      <ion-icon name="home" item-right [hidden]="doacao.tipo == 2"></ion-icon>
+      <ion-icon name="person" item-right [hidden]="doacao.tipo == 1"></ion-icon>
+      <h2>{{doacao.nome}}</h2>
+      <p style="white-space:normal;">{{doacao.endereco}}</p>
     </button>
   </ion-card>
 </ion-content>

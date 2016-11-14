@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
 
-import { Leitura, LeituraService } from '../../providers/leitura-service';
+import { ApiRequestService } from '../../providers/api-request-service';
 
 @Component({
   selector: 'page-leitura-grafico-nivel',
@@ -9,7 +9,7 @@ import { Leitura, LeituraService } from '../../providers/leitura-service';
 })
 export class LeituraGraficoNivelPage {
   filtroLeitura: string = '3h';
-  leituras: Leitura[] = [];
+  leituras: any[] = [];
   graficoDados:any[]  = [{data:[]}];
   graficoLabel:any[]  = [];
   graficoConfiguracoes:any = {
@@ -21,13 +21,13 @@ export class LeituraGraficoNivelPage {
 
   constructor(
     public navCtrl: NavController, public loadCtrl: LoadingController, public alertCtrl: AlertController,
-    private leituraService: LeituraService
+    private apiRequest: ApiRequestService
   ) {}
 
   ionViewDidLoad() {
     let loading = this.loadCtrl.create({content:'Carregando'});
     loading.present();
-    this.leituraService.readAll().subscribe(leitura => {
+    this.apiRequest.get("/leituraponto/search/findAllByOrderByIdAsc/").subscribe(leitura => {
       this.leituras = leitura;
       this.setGraficoData();
       loading.dismiss();

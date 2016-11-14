@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 
-import { HomePage } from '../pages/home/home';
 import { AbrigosPage } from '../pages/abrigos/abrigos';
 import { ContatosPage } from '../pages/contatos/contatos';
 import { DoacoesPage } from '../pages/doacoes/doacoes';
@@ -14,13 +13,12 @@ import { LeituraMenuPage } from '../pages/leitura-menu/leitura-menu';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage = HomePage;
+  rootPage = LeituraMenuPage;
   pages: Array<{title: String, page: any}>;
 
   constructor(public platform: Platform, public menu: MenuController) {
     this.initializeApp();
     this.pages = [
-      { title: 'Início', page: HomePage },
       { title: 'Leitura', page: LeituraMenuPage },
       { title: 'Abrigos', page: AbrigosPage },
       { title: 'Doações', page: DoacoesPage },

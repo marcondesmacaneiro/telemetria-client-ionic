@@ -8,31 +8,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <button ion-item class="card-header-title" (click)="detalhaPontoLeitura('Ponto Dom Tito Buss')">
+  <ion-card *ngFor="let ponto of pontos" [hidden]="ponto.sensores.length == 0">
+    <button ion-item class="card-header-title" (click)="detalhaPontoLeitura(ponto);">
       <ion-icon name="analytics" item-left></ion-icon>
-      <h2>Ponto Dom Tito Busss</h2>
-      <p>Rio do Sul - Canta Galo</p>
+      <h2>{{ponto.nome}}</h2>
+      <p>{{ponto.endereco}}</p>
     </button>
-    <button ion-item class="tabulacao" (click)="mostraSensorHistorico()">
+    <button *ngFor="let sensor of ponto.sensores " ion-item class="tabulacao" (click)="mostraSensorHistorico(sensor);">
       <ion-icon name="stats" item-left></ion-icon>
-      <h2>Nível do Rio</h2>
+      <h2>{{sensor.nomeSensor}}</h2>
       <p>12.2 m - 16/10/2016 23:59:00</p>
-    </button>
-    <button ion-item class="tabulacao">
-      <ion-icon name="stats" item-left></ion-icon>
-      <h2>Umidade</h2>
-      <p>12% - 16/10/2016 23:59:00</p>
-    </button>
-    <button ion-item class="tabulacao">
-      <ion-icon name="stats" item-left></ion-icon>
-      <h2>Vento</h2>
-      <p>20km/h - 16/10/2016 23:59:00</p>
-    </button>
-    <button ion-item class="tabulacao">
-      <ion-icon name="stats" item-left></ion-icon>
-      <h2>Temperatura</h2>
-      <p>20º C - 16/10/2016 23:59:00</p>
     </button>
   </ion-card>
 </ion-content>

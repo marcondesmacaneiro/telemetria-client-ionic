@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Igreja São Judas</ion-title>
+    <ion-title>{{abrigo.nome}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -8,49 +8,41 @@
   <div id="mapa-abrigo-detalhe"></div>
   <ion-list>
     <ion-list-header>
+      Abrigo
+    </ion-list-header>
+    <ion-item><span style="white-space:normal;">{{abrigo.nome}}</span></ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
       Endereço
     </ion-list-header>
-    <ion-item>Rio do Sul - Centro</ion-item>
+    <ion-item><span style="white-space:normal;">{{abrigo.endereco}}</span></ion-item>
   </ion-list>
   <ion-list>
     <ion-list-header>
       Responsável
     </ion-list-header>
-    <ion-item>Bruno Pasqualini</ion-item>
+    <ion-item><span style="white-space:normal;">{{abrigo.responsavel}}</span></ion-item>
   </ion-list>
   <ion-list>
     <ion-list-header>
       Vagas Disponíveis
     </ion-list-header>
-    <ion-item>05/20</ion-item>
+    <ion-item>{{abrigo.lotacaoAtual}}/{{abrigo.lotacaoMaxima}}</ion-item>
   </ion-list>
   <ion-list>
     <ion-list-header>
       Contatos
     </ion-list-header>
-    <ion-item>
-      <ion-icon name="contact" item-left></ion-icon>
-      Bruno Pasqualini
-    </ion-item>
-    <ion-item>
-      <ion-icon name="call" item-left></ion-icon>
-      99 99999999
-    </ion-item>
-    <ion-item>
-      <ion-icon name="contact" item-left></ion-icon>
-      Bruno Pasqualini
-    </ion-item>
-    <ion-item>
-      <ion-icon name="call" item-left></ion-icon>
-      99 99999999
-    </ion-item>
-    <ion-item>
-      <ion-icon name="contact" item-left></ion-icon>
-      Bruno Pasqualini
-    </ion-item>
-    <ion-item>
-      <ion-icon name="call" item-left></ion-icon>
-      99 99999999
-    </ion-item>
+    <span *ngFor="let contato of contatos">
+      <ion-item>
+        <ion-icon name="contact" item-left></ion-icon>
+        <span style="white-space:normal;">{{contato.responsavel}}</span>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="call" item-left></ion-icon>
+        {{contato.telefone}}
+      </ion-item>
+    </span>
   </ion-list>
 </ion-content>
