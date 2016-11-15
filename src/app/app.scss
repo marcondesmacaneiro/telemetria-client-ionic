@@ -18,3 +18,14 @@
 .text-bold{
   font-weight: bold !important;
 }
+
+.aviso-app{
+  padding: 5px 10px;
+  background-color: #bf1d1d;
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+}
+.aviso-app::after{
+  content: 'Demonstração - Dados Fictícios';
+}
