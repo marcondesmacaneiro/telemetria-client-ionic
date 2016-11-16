@@ -20,7 +20,7 @@ export class LeituraPontoDetalhePage {
   }
 
   mostraSensorHistorico(sensor: any) {
-    this.navCtrl.push(LeituraSensorHistoricoPage);
+    this.navCtrl.push(LeituraSensorHistoricoPage, {sensor: sensor});
   }
 
   private carregaMapa() {

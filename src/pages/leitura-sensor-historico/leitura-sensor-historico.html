@@ -9,64 +9,16 @@
   <ion-item>
     <ion-label>Filtro de Leitura</ion-label>
     <ion-select [(ngModel)]="filtroLeitura" (ionChange)="atualizaHistorico()" cancelText="Fechar">
-      <ion-option value="12h">12 Horas</ion-option>
-      <ion-option value="24h">24 Horas</ion-option>
-      <ion-option value="3d">3 Dias</ion-option>
-      <ion-option value="7d">7 Dias</ion-option>
-      <ion-option value="14d">14 Dias</ion-option>
+      <ion-option value="43200">12 Horas</ion-option>
+      <ion-option value="86400">24 Horas</ion-option>
+      <ion-option value="259200">3 Dias</ion-option>
+      <ion-option value="604800">7 Dias</ion-option>
+      <ion-option value="1209600">14 Dias</ion-option>
     </ion-select>
   </ion-item>
   <ion-list insert>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:5
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
-    </ion-item>
-    <ion-item>
-      23.4 m - 16/10/2016 23:59:59
+    <ion-item *ngFor="let leitura of leituras">
+      <span>{{leitura.leituraFormatada}} - {{leitura.dataHoraFormatada}}</span>
     </ion-item>
 </ion-list>
 </ion-content>

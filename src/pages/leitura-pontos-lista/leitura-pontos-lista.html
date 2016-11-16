@@ -18,7 +18,7 @@
     <button *ngFor="let sensor of ponto.sensores " ion-item class="tabulacao" (click)="mostraSensorHistorico(sensor);">
       <ion-icon name="stats" item-left></ion-icon>
       <h2>{{sensor.nomeSensor}}</h2>
-      <p>12.2 m - 16/10/2016 23:59:00</p>
+      <p>{{sensor.ultimaLeitura}}</p>
     </button>
   </ion-card>
 </ion-content>

@@ -25,8 +25,8 @@ export class LeituraPontosListaPage {
     this.navCtrl.push(LeituraPontoDetalhePage, {ponto: ponto});
   }
 
-  mostraSensorHistorico(pontoId: number, sensorId: number){
-    this.navCtrl.push(LeituraSensorHistoricoPage);
+  mostraSensorHistorico(sensor: any){
+    this.navCtrl.push(LeituraSensorHistoricoPage, {sensor: sensor});
   }
 
   private carregaPontos() {
