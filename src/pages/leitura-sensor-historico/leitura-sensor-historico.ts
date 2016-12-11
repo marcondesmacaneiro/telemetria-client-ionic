@@ -8,13 +8,13 @@ import { ApiRequestService } from '../../providers/api-request-service';
   templateUrl: 'leitura-sensor-historico.html'
 })
 export class LeituraSensorHistoricoPage {
-  private filtroLeitura: number = 259200;
-  private sensor: any;
-  private leituras: any[] = [];
+  filtroLeitura: number = 259200;
+  sensor: any;
+  leituras: any[] = [];
 
   constructor(
     public navCtrl: NavController, public loadCtrl: LoadingController, public alertCtrl: AlertController,
-    public params: NavParams, private apiRequest: ApiRequestService
+    public params: NavParams, public apiRequest: ApiRequestService
   ) {
     this.sensor = this.params.get('sensor');
   }

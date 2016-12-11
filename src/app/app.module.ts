@@ -12,6 +12,8 @@ import { LeituraGraficoNivelPage } from '../pages/leitura-grafico-nivel/leitura-
 import { LeituraPontosListaPage } from '../pages/leitura-pontos-lista/leitura-pontos-lista';
 import { LeituraPontoDetalhePage } from '../pages/leitura-ponto-detalhe/leitura-ponto-detalhe';
 import { LeituraSensorHistoricoPage } from '../pages/leitura-sensor-historico/leitura-sensor-historico';
+import { BarragensPage } from '../pages/barragens/barragens';
+import { BarragemDetalhePage } from '../pages/barragem-detalhe/barragem-detalhe';
 
 import { ApiRequestService } from '../providers/api-request-service';
 
@@ -27,7 +29,9 @@ import { ApiRequestService } from '../providers/api-request-service';
     LeituraGraficoNivelPage,
     LeituraPontosListaPage,
     LeituraPontoDetalhePage,
-    LeituraSensorHistoricoPage
+    LeituraSensorHistoricoPage,
+    BarragensPage,
+    BarragemDetalhePage,
   ],
   imports: [
     ChartsModule,
@@ -48,7 +52,9 @@ import { ApiRequestService } from '../providers/api-request-service';
     LeituraGraficoNivelPage,
     LeituraPontosListaPage,
     LeituraPontoDetalhePage,
-    LeituraSensorHistoricoPage
+    LeituraSensorHistoricoPage,
+    BarragensPage,
+    BarragemDetalhePage,
   ],
   providers: [ApiRequestService]
 })

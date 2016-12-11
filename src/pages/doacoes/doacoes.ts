@@ -9,11 +9,11 @@ import { ApiRequestService } from '../../providers/api-request-service';
   templateUrl: 'doacoes.html'
 })
 export class DoacoesPage {
-  private doacoes: any[] = [];
+  doacoes: any[] = [];
 
   constructor(
     public navCtrl: NavController, public loadCtrl: LoadingController, public alertCtrl: AlertController,
-    private apiRequest: ApiRequestService
+    public apiRequest: ApiRequestService
   ) {}
 
   ionViewDidLoad() {
@@ -24,7 +24,7 @@ export class DoacoesPage {
     this.navCtrl.push(DoacaoDetalhePage, {doacao: doacao});
   }
 
-  private carregaDoacoes() {
+  carregaDoacoes() {
     let loading = this.loadCtrl.create({content:'Carregando'});
     loading.present();
     this.apiRequest.get("/doacao/search/findAllByOrderByIdAsc/").subscribe(doacoes => {

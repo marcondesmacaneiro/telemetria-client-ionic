@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Barragens</ion-title>
+  </ion-navbar>
+  <div class="aviso-app"></div>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let barragem of barragens" [hidden]="barragem.ultimoHistorico == null">
+    <button ion-item (click)="detalhaBarragem(barragem);">
+      <h2>{{barragem.nome}}</h2>
+      <p style="white-space:normal;">Montante: {{barragem.ultimoHistorico.montante}} m</p>
+      <p style="white-space:normal;">Comportas: {{barragem.ultimoHistorico.comportasAbertas}} Abertas / {{barragem.ultimoHistorico.comportasFechadas}} Fechadas</p>
+      <p style="white-space:normal;">Última Mudança: {{barragem.ultimoHistorico.dataHoraFormatada}}</p>
+    </button>
+  </ion-card>
+</ion-content>

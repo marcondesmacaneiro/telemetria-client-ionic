@@ -8,12 +8,10 @@ export class ApiRequestService {
 
   constructor(public http: Http) {}
 
-  getRemote(url: string) {
-    return this.http.get(url).map(res => res.json());
-  }
-
   get(url: string) {
-    return this.getRemote("http://localhost:8080" + url);
+    let urlApi = "https://telemetria-rest.herokuapp.com";
+    url = urlApi + url.replace(urlApi, '');
+    return this.http.get(url).map(res => res.json());
   }
 
 }

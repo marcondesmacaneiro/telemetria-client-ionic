@@ -8,25 +8,25 @@ import { ApiRequestService } from '../../providers/api-request-service';
   templateUrl: 'contatos.html'
 })
 export class ContatosPage {
-  private contatos: any[] = [];
+  contatos: any[] = [];
 
   constructor(
     public navCtrl: NavController, public loadCtrl: LoadingController, public alertCtrl: AlertController,
-    private apiRequest: ApiRequestService
+    public apiRequest: ApiRequestService
   ) {}
 
   ionViewDidLoad() {
     this.carregaContatos();
   }
 
-  private carregaContatos(){
+  carregaContatos(){
     let loading = this.loadCtrl.create({content:'Carregando'});
     loading.present();
     this.apiRequest.get("/contatogeral/search/findAllByOrderByIdAsc/").subscribe(contatos => {
       this.contatos = contatos._embedded.contatosgerais;
       for(let contato of this.contatos){
         contato.telefones = [];
-        this.apiRequest.getRemote(contato._links.telefones.href).subscribe(telefones => {
+        this.apiRequest.get(contato._links.telefones.href).subscribe(telefones => {
           contato.telefones = telefones._embedded.contatosgeraistelefones;
         });
       }

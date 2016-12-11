@@ -15,7 +15,7 @@
       <h2>{{ponto.nome}}</h2>
       <p>{{ponto.endereco}}</p>
     </button>
-    <button *ngFor="let sensor of ponto.sensores " ion-item class="tabulacao" (click)="mostraSensorHistorico(sensor);">
+    <button *ngFor="let sensor of ponto.sensores " ion-item (click)="mostraSensorHistorico(sensor);">
       <ion-icon name="stats" item-left></ion-icon>
       <h2>{{sensor.nomeSensor}}</h2>
       <p>{{sensor.ultimaLeitura}}</p>

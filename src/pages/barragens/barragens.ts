@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
-import { AbrigoDetalhePage } from '../abrigo-detalhe/abrigo-detalhe';
+import { BarragemDetalhePage } from '../barragem-detalhe/barragem-detalhe';
 
 import { ApiRequestService } from '../../providers/api-request-service';
 
 @Component({
-  selector: 'page-abrigos',
-  templateUrl: 'abrigos.html'
+  selector: 'page-barragens',
+  templateUrl: 'barragens.html'
 })
-export class AbrigosPage {
-  abrigos: any[] = [];
+export class BarragensPage {
+  barragens: any[] = [];
 
   constructor(
     public navCtrl: NavController, public loadCtrl: LoadingController, public alertCtrl: AlertController,
@@ -17,26 +17,27 @@ export class AbrigosPage {
   ) {}
 
   ionViewDidLoad() {
-    this.carregaAbrigos();
+    this.carregaBarragens();
   }
 
-  detalhaAbrigo(abrigo: any){
-    this.navCtrl.push(AbrigoDetalhePage, {abrigo: abrigo});
+  detalhaBarragem(barragem: any){
+    this.navCtrl.push(BarragemDetalhePage, {barragem: barragem});
   }
 
-  carregaAbrigos() {
+  carregaBarragens() {
     let loading = this.loadCtrl.create({content:'Carregando'});
     loading.present();
-    this.apiRequest.get("/api/abrigo/").subscribe(abrigos => {
-      this.abrigos = abrigos;
+    this.apiRequest.get("/api/barragem/").subscribe(barragens => {
+      this.barragens = barragens;
       loading.dismiss();
     }, () => {
       loading.dismiss();
       this.alertCtrl.create({
         title: 'Ops!',
-        subTitle: 'Não foi possível buscar os abrigos!',
+        subTitle: 'Não foi possível buscar os dados das barragens!',
         buttons: ['OK']
       }).present();
     });
   }
+
 }

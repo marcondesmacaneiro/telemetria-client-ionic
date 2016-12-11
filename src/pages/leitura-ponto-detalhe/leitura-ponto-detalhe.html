@@ -1,17 +1,20 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ponto.nome}}</ion-title>
+    <ion-title>
+      Ponto de Leitura
+      <span style="font-weight: normal;font-size: 0.7em;display:block;">{{ponto.nome}}</span>
+    </ion-title>
   </ion-navbar>
   <div class="aviso-app"></div>
 </ion-header>
 
 <ion-content>
-  <div id="mapa-ponto-detalhe"></div>
+  <div id="mapa-ponto-detalhe" class="mapa"></div>
   <ion-card>
     <button *ngFor="let sensor of ponto.sensores" ion-item (click)="mostraSensorHistorico(sensor);">
       <ion-icon name="stats" item-left></ion-icon>
       <h2>{{sensor.nomeSensor}}</h2>
-      <p>12.2 m - 16/10/2016 23:59:00</p>
+      <p>{{sensor.ultimaLeitura}}</p>
     </button>
   </ion-card>
 </ion-content>

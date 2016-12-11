@@ -10,11 +10,11 @@ import { ApiRequestService } from '../../providers/api-request-service';
   templateUrl: 'leitura-pontos-lista.html'
 })
 export class LeituraPontosListaPage {
-  private pontos: any[] = [];
+  pontos: any[] = [];
 
   constructor(
     public navCtrl: NavController, public loadCtrl: LoadingController, public alertCtrl: AlertController,
-    private apiRequest: ApiRequestService
+    public apiRequest: ApiRequestService
   ) {}
 
   ionViewDidLoad() {
@@ -29,14 +29,14 @@ export class LeituraPontosListaPage {
     this.navCtrl.push(LeituraSensorHistoricoPage, {sensor: sensor});
   }
 
-  private carregaPontos() {
+  carregaPontos() {
     let loading = this.loadCtrl.create({content:'Carregando'});
     loading.present();
     this.apiRequest.get("/leituraponto/search/findAllByOrderByIdAsc/").subscribe(pontos => {
       this.pontos = pontos._embedded.leiturapontos;
       for(let ponto of this.pontos){
         ponto.sensores = [];
-        this.apiRequest.getRemote(ponto._links.sensores.href+"ativos").subscribe(sensores => {
+        this.apiRequest.get(ponto._links.sensores.href+"ativos").subscribe(sensores => {
           ponto.sensores = sensores;
         });
       }

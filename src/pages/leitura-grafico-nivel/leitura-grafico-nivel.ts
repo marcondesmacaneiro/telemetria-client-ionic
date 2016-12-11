@@ -21,7 +21,7 @@ export class LeituraGraficoNivelPage {
 
   constructor(
     public navCtrl: NavController, public loadCtrl: LoadingController, public alertCtrl: AlertController,
-    private apiRequest: ApiRequestService
+    public apiRequest: ApiRequestService
   ) {}
 
   ionViewDidLoad() {
@@ -42,7 +42,7 @@ export class LeituraGraficoNivelPage {
     });
   }
 
-  private setGraficoData(){
+  setGraficoData(){
     let newData:any[]     = [];
     let newLabel:string[] = [];
     for(let ponto of this.leituras){
