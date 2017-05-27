@@ -1,22 +1,24 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Platform } from 'ionic-angular';
-import { SimpleMapPage } from '../simple-map/simple-map';
+import { IonicPage, NavController, NavParams, Platform } from 'ionic-angular';
 
+import { SimpleMapPage } from '../../components/simple-map/simple-map';
+
+@IonicPage()
 @Component({
   selector: 'page-doacao-detalhe',
-  templateUrl: 'doacao-detalhe.html'
+  templateUrl: 'doacao-detalhe.html',
 })
 export class DoacaoDetalhePage {
   doacao: any;
 
   constructor(public navCtrl: NavController, public params: NavParams, public platform: Platform) {
     this.doacao = this.params.get('doacao');
+  }
 
-    platform.ready().then(() => {
-      let position = JSON.parse(this.doacao.localizacao);
-      let mapa     = new SimpleMapPage('mapa-doacao-detalhe', position);
-      mapa.loadMap();
-    });
+  ngAfterViewInit() {
+    let position = JSON.parse(this.doacao.localizacao);
+    let mapa     = new SimpleMapPage('mapa-doacao-detalhe', position);
+    mapa.loadMap();
   }
 
 }

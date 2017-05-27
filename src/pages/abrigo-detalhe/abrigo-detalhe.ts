@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController, NavParams, Platform } from 'ionic-angular';
-import { SimpleMapPage } from '../simple-map/simple-map';
+import { IonicPage, NavController, LoadingController, AlertController, NavParams, Platform } from 'ionic-angular';
 
-import { ApiRequestService } from '../../providers/api-request-service';
+import { SimpleMapPage } from '../../components/simple-map/simple-map';
 
+import { ApiRequestServiceProvider } from "../../providers/api-request-service/api-request-service";
+
+@IonicPage()
 @Component({
   selector: 'page-abrigo-detalhe',
-  templateUrl: 'abrigo-detalhe.html'
+  templateUrl: 'abrigo-detalhe.html',
 })
 export class AbrigoDetalhePage {
   abrigo: any;
@@ -14,15 +16,15 @@ export class AbrigoDetalhePage {
 
   constructor(
     public navCtrl: NavController, public loadCtrl: LoadingController, public alertCtrl: AlertController,
-    public params: NavParams, public platform: Platform, public apiRequest: ApiRequestService
+    public params: NavParams, public platform: Platform, public apiRequest: ApiRequestServiceProvider
   ) {
     this.abrigo = this.params.get('abrigo');
+  }
 
-    platform.ready().then(() => {
-      let position = JSON.parse(this.abrigo.localizacao);
-      let mapa     = new SimpleMapPage('mapa-abrigo-detalhe', position);
-      mapa.loadMap();
-    });
+  ngAfterViewInit() {
+    let position = JSON.parse(this.abrigo.localizacao);
+    let mapa     = new SimpleMapPage('mapa-abrigo-detalhe', position);
+    mapa.loadMap();
   }
 
   ionViewDidLoad() {

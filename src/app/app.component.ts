@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, MenuController, Nav } from 'ionic-angular';
-import { StatusBar } from 'ionic-native';
+import { Platform, Nav, MenuController } from 'ionic-angular';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AbrigosPage } from '../pages/abrigos/abrigos';
 import { ContatosPage } from '../pages/contatos/contatos';
@@ -17,20 +18,21 @@ export class MyApp {
   rootPage = LeituraPontosListaPage;
   pages: Array<{title: String, page: any}>;
 
-  constructor(public platform: Platform, public menu: MenuController) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public menu: MenuController) {
     this.initializeApp();
     this.pages = [
-      { title: 'Leitura', page: LeituraPontosListaPage },
-      { title: 'Barragens', page: BarragensPage },
-      { title: 'Abrigos', page: AbrigosPage },
-      { title: 'Doações', page: DoacoesPage },
-      { title: 'Contatos', page: ContatosPage }
-    ];
+        { title: 'Leitura', page: LeituraPontosListaPage },
+        { title: 'Barragens', page: BarragensPage },
+        { title: 'Abrigos', page: AbrigosPage },
+        { title: 'Doações', page: DoacoesPage },
+        { title: 'Contatos', page: ContatosPage }
+      ];
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      StatusBar.styleDefault();
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
     });
   }
 
@@ -38,4 +40,6 @@ export class MyApp {
     this.menu.close();
     this.nav.setRoot(page.page);
   }
+
 }
+

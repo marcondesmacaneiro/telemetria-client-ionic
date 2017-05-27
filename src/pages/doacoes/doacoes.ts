@@ -1,20 +1,23 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
-import { DoacaoDetalhePage } from '../doacao-detalhe/doacao-detalhe';
+import { IonicPage, NavController, LoadingController, AlertController } from 'ionic-angular';
 
-import { ApiRequestService } from '../../providers/api-request-service';
+import { DoacaoDetalhePage } from "../doacao-detalhe/doacao-detalhe";
 
+import { ApiRequestServiceProvider } from "../../providers/api-request-service/api-request-service";
+
+@IonicPage()
 @Component({
   selector: 'page-doacoes',
-  templateUrl: 'doacoes.html'
+  templateUrl: 'doacoes.html',
 })
 export class DoacoesPage {
   doacoes: any[] = [];
 
   constructor(
     public navCtrl: NavController, public loadCtrl: LoadingController, public alertCtrl: AlertController,
-    public apiRequest: ApiRequestService
-  ) {}
+    public apiRequest: ApiRequestServiceProvider
+  ) {
+  }
 
   ionViewDidLoad() {
     this.carregaDoacoes();

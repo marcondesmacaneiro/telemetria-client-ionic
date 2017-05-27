@@ -1,21 +1,24 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController, AlertController } from 'ionic-angular';
+
 import { LeituraSensorHistoricoPage } from '../leitura-sensor-historico/leitura-sensor-historico';
 import { LeituraPontoDetalhePage } from '../leitura-ponto-detalhe/leitura-ponto-detalhe';
 
-import { ApiRequestService } from '../../providers/api-request-service';
+import { ApiRequestServiceProvider } from "../../providers/api-request-service/api-request-service";
 
+@IonicPage()
 @Component({
   selector: 'page-leitura-pontos-lista',
-  templateUrl: 'leitura-pontos-lista.html'
+  templateUrl: 'leitura-pontos-lista.html',
 })
 export class LeituraPontosListaPage {
   pontos: any[] = [];
 
   constructor(
     public navCtrl: NavController, public loadCtrl: LoadingController, public alertCtrl: AlertController,
-    public apiRequest: ApiRequestService
-  ) {}
+    public apiRequest: ApiRequestServiceProvider
+  ) {
+  }
 
   ionViewDidLoad() {
     this.carregaPontos();

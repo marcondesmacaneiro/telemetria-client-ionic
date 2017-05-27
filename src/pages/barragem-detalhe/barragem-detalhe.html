@@ -7,16 +7,7 @@
 
 <ion-content>
   <div id="mapa-barragem-detalhe" class="mapa"></div>
-  <ion-item>
-    <ion-label>Filtro de Histórico</ion-label>
-    <ion-select [(ngModel)]="filtroHistorico" (ionChange)="atualizaHistorico()" cancelText="Fechar">
-      <ion-option value="43200">12 Horas</ion-option>
-      <ion-option value="86400">24 Horas</ion-option>
-      <ion-option value="259200">3 Dias</ion-option>
-      <ion-option value="604800">7 Dias</ion-option>
-      <ion-option value="1209600">14 Dias</ion-option>
-    </ion-select>
-  </ion-item>
+  <filtro-historico [valor]="filtroHistorico" (change)="atualizaHistorico($event)"></filtro-historico>
   <ion-list insert>
     <ion-item *ngFor="let historico of historicos">
       <p style="white-space:normal;">Montante: {{historico.montante}} m</p>

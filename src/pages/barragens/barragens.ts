@@ -1,20 +1,23 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
-import { BarragemDetalhePage } from '../barragem-detalhe/barragem-detalhe';
+import { IonicPage, NavController, LoadingController, AlertController } from 'ionic-angular';
 
-import { ApiRequestService } from '../../providers/api-request-service';
+import { BarragemDetalhePage } from "../barragem-detalhe/barragem-detalhe";
 
+import { ApiRequestServiceProvider } from "../../providers/api-request-service/api-request-service";
+
+@IonicPage()
 @Component({
   selector: 'page-barragens',
-  templateUrl: 'barragens.html'
+  templateUrl: 'barragens.html',
 })
 export class BarragensPage {
   barragens: any[] = [];
 
   constructor(
     public navCtrl: NavController, public loadCtrl: LoadingController, public alertCtrl: AlertController,
-    public apiRequest: ApiRequestService
-  ) {}
+    public apiRequest: ApiRequestServiceProvider
+  ) {
+  }
 
   ionViewDidLoad() {
     this.carregaBarragens();

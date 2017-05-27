@@ -19,8 +19,7 @@ export class SimpleMapPage {
       disableDefaultUI : true,
       mapTypeId        : google.maps.MapTypeId.ROADMAP
     });
-
-    let marker = new google.maps.Marker({
+    new google.maps.Marker({
       position: this.position,
       map: map
     });

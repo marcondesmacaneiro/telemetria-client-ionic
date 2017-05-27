@@ -1,0 +1,6 @@
+<ion-item>
+  <ion-label>{{descricao}}</ion-label>
+  <ion-select [(ngModel)]="valor" (ionChange)="onChangeFiltro()" cancelText="Fechar">
+    <ion-option *ngFor="let opcao of opcoes" [value]="opcao.valor">{{opcao.descricao}}</ion-option>
+  </ion-select>
+</ion-item>

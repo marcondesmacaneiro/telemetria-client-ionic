@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 
-import { ApiRequestService } from '../../providers/api-request-service';
+import { ApiRequestServiceProvider } from "../../providers/api-request-service/api-request-service";
 
+@IonicPage()
 @Component({
   selector: 'page-leitura-sensor-historico',
-  templateUrl: 'leitura-sensor-historico.html'
+  templateUrl: 'leitura-sensor-historico.html',
 })
 export class LeituraSensorHistoricoPage {
   filtroLeitura: number = 259200;
@@ -14,19 +15,19 @@ export class LeituraSensorHistoricoPage {
 
   constructor(
     public navCtrl: NavController, public loadCtrl: LoadingController, public alertCtrl: AlertController,
-    public params: NavParams, public apiRequest: ApiRequestService
+    public params: NavParams, public apiRequest: ApiRequestServiceProvider
   ) {
     this.sensor = this.params.get('sensor');
   }
 
   ionViewDidLoad() {
-    this.atualizaHistorico();
+    this.atualizaHistorico(this.filtroLeitura);
   }
 
-  atualizaHistorico(){
+  atualizaHistorico(filtroLeitura: number){
     let loading = this.loadCtrl.create({content:'Carregando'});
     loading.present();
-    this.apiRequest.get("/leiturasensor/" + this.sensor.id + "/filtrodata/" + this.filtroLeitura).subscribe(leituras => {
+    this.apiRequest.get("/leiturasensor/" + this.sensor.id + "/filtrodata/" + filtroLeitura).subscribe(leituras => {
       this.leituras = leituras;
       loading.dismiss();
     }, () => {

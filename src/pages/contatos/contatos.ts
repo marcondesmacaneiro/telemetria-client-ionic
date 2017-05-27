@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController, AlertController } from 'ionic-angular';
+import { ApiRequestServiceProvider } from "../../providers/api-request-service/api-request-service";
 
-import { ApiRequestService } from '../../providers/api-request-service';
-
+@IonicPage()
 @Component({
   selector: 'page-contatos',
-  templateUrl: 'contatos.html'
+  templateUrl: 'contatos.html',
 })
 export class ContatosPage {
   contatos: any[] = [];
 
   constructor(
     public navCtrl: NavController, public loadCtrl: LoadingController, public alertCtrl: AlertController,
-    public apiRequest: ApiRequestService
-  ) {}
+    public apiRequest: ApiRequestServiceProvider
+  ) {
+  }
 
   ionViewDidLoad() {
     this.carregaContatos();

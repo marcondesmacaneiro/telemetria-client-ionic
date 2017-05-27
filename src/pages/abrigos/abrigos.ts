@@ -1,20 +1,23 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
-import { AbrigoDetalhePage } from '../abrigo-detalhe/abrigo-detalhe';
+import { IonicPage, NavController, LoadingController, AlertController } from 'ionic-angular';
 
-import { ApiRequestService } from '../../providers/api-request-service';
+import { AbrigoDetalhePage } from "../abrigo-detalhe/abrigo-detalhe";
 
+import { ApiRequestServiceProvider } from "../../providers/api-request-service/api-request-service";
+
+@IonicPage()
 @Component({
   selector: 'page-abrigos',
-  templateUrl: 'abrigos.html'
+  templateUrl: 'abrigos.html',
 })
 export class AbrigosPage {
   abrigos: any[] = [];
 
   constructor(
     public navCtrl: NavController, public loadCtrl: LoadingController, public alertCtrl: AlertController,
-    public apiRequest: ApiRequestService
-  ) {}
+    public apiRequest: ApiRequestServiceProvider
+  ) {
+  }
 
   ionViewDidLoad() {
     this.carregaAbrigos();
@@ -39,4 +42,5 @@ export class AbrigosPage {
       }).present();
     });
   }
+
 }
